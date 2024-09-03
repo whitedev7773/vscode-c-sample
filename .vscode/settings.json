@@ -1,0 +1,16 @@
+{
+  // 기본 포매터를 정의합니다.
+  "editor.defaultFormatter": "ms-vscode.cpptools",
+
+  // 저장할 때 코드를 포매팅합니다.
+  "editor.formatOnSave": true,
+
+  // 코드 포매팅 스타일을 정의합니다.
+  "C_Cpp.clang_format_fallbackStyle": "Google",
+
+  // 기본 터미널을 CMD로 변경
+  "terminal.integrated.defaultProfile.windows": "Command Prompt",
+
+  // 한글 출력 가능하게
+  "files.encoding": "euckr"
+}

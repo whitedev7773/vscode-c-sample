@@ -9,7 +9,7 @@
           //C++ 컴파일
           {
             "label": "[C++] 저장하고 컴파일 & 실행",
-            "command": "g++ ${file} -o ${fileDirname}/${fileBasenameNoExtension} && cmd /C ${fileDirname}\\${fileBasenameNoExtension}",
+            "command": "g++ \"${file}\" -o \"${fileDirname}/${fileBasenameNoExtension}\" && cmd /C \"${fileDirname}\\${fileBasenameNoExtension}\"",
             "group": "build",
 
             //컴파일시 에러를 편집기에 반영
@@ -35,7 +35,7 @@
         //C 컴파일
         {
             "label": "[C] 저장하고 컴파일 & 실행",
-            "command": "gcc ${file} -o ${fileDirname}/${fileBasenameNoExtension} && cmd /C ${fileDirname}\\${fileBasenameNoExtension}",
+            "command": "gcc \"${file}\" -o \"${fileDirname}/${fileBasenameNoExtension}\" && cmd /C \"${fileDirname}\\${fileBasenameNoExtension}\"",
             "group": "build",
 
             //컴파일시 에러를 편집기에 반영

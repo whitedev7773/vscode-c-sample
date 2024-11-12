@@ -1,28 +1,18 @@
-
 {
     "version": "2.0.0",
     "runner": "terminal",
     "type": "shell",
     "echoCommand": true,
-    "presentation" : { "reveal": "always" },
+    "presentation": { "reveal": "always" },
     "tasks": [
-          //C++ 컴파일
-          {
+        // C++ Compile and Run
+        {
             "label": "[C++] 저장하고 컴파일 & 실행",
-            "command": "g++ \"${file}\" -o \"${fileDirname}/${fileBasenameNoExtension}\" && cmd /C \"${fileDirname}\\${fileBasenameNoExtension}\"",
+            "command": "g++ \"${file}\" -o \"${fileDirname}/${fileBasenameNoExtension}\" && cmd /C \"${fileDirname}\\${fileBasenameNoExtension}\" ${input:args}",
             "group": "build",
-
-            //컴파일시 에러를 편집기에 반영
-            //참고:   https://code.visualstudio.com/docs/editor/tasks#_defining-a-problem-matcher
-
             "problemMatcher": {
-                "fileLocation": [
-                    "relative",
-                    "${workspaceRoot}"
-                ],
+                "fileLocation": ["relative", "${workspaceRoot}"],
                 "pattern": {
-                    // The regular expression.
-                  //Example to match: helloWorld.c:5:3: warning: implicit declaration of function 'prinft'
                     "regexp": "^(.*):(\\d+):(\\d+):\\s+(warning error):\\s+(.*)$",
                     "file": 1,
                     "line": 2,
@@ -32,23 +22,14 @@
                 }
             }
         },
-        //C 컴파일
+        // C Compile and Run
         {
             "label": "[C] 저장하고 컴파일 & 실행",
-            "command": "gcc \"${file}\" -o \"${fileDirname}/${fileBasenameNoExtension}\" && cmd /C \"${fileDirname}\\${fileBasenameNoExtension}\"",
+            "command": "gcc \"${file}\" -o \"${fileDirname}/${fileBasenameNoExtension}\" && cmd /C \"${fileDirname}\\${fileBasenameNoExtension}\" ${input:args}",
             "group": "build",
-
-            //컴파일시 에러를 편집기에 반영
-            //참고:   https://code.visualstudio.com/docs/editor/tasks#_defining-a-problem-matcher
-
             "problemMatcher": {
-                "fileLocation": [
-                    "relative",
-                    "${workspaceRoot}"
-                ],
+                "fileLocation": ["relative", "${workspaceRoot}"],
                 "pattern": {
-                    // The regular expression.
-                  //Example to match: helloWorld.c:5:3: warning: implicit declaration of function 'prinft'
                     "regexp": "^(.*):(\\d+):(\\d+):\\s+(warning error):\\s+(.*)$",
                     "file": 1,
                     "line": 2,
@@ -58,6 +39,12 @@
                 }
             }
         }
-
+    ],
+    "inputs": [
+        {
+            "id": "args",
+            "type": "promptString",
+            "description": "명령 인자로 전달할 내용 입력"
+        }
     ]
 }
